@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>test_7_socket</name>
+	<name>test_7_RAW_UDP_server_with_lwIP</name>
 	<comment></comment>
 	<projects>
 	</projects>

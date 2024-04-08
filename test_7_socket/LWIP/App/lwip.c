@@ -155,7 +155,7 @@ void MX_LWIP_Process(void)
   Ethernet_Link_Periodic_Handle(&gnetif);
 
 /* USER CODE BEGIN 4_3 */
-ethernet_link_status_updated(&gnetif);
+	ethernet_link_status_updated(&gnetif);
 /* USER CODE END 4_3 */
 }
 
