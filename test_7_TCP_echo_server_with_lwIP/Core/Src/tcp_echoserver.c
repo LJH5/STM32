@@ -81,16 +81,14 @@ void tcp_echoserver_init(void)
 {
   /* create new tcp pcb */
   tcp_echoserver_pcb = tcp_new();
-
-  ip_addr_t myIPADDR;
-  IP_ADDR4(&myIPADDR, 192, 168, 1, 194);
+  int tcp_port = 7;
 
   if (tcp_echoserver_pcb != NULL)
   {
     err_t err;
     
     /* bind echo_pcb to port 7 (ECHO protocol) */
-    err = tcp_bind(tcp_echoserver_pcb, &myIPADDR, 7);
+    err = tcp_bind(tcp_echoserver_pcb, IP_ADDR_ANY, tcp_port);
     
     if (err == ERR_OK)
     {
@@ -140,7 +138,6 @@ static err_t tcp_echoserver_accept(void *arg, struct tcp_pcb *newpcb, err_t err)
     
     /* initialize lwip tcp_recv callback function for newpcb  */ 
     tcp_recv(newpcb, tcp_echoserver_recv);
-    
     /* initialize lwip tcp_err callback function for newpcb  */
     tcp_err(newpcb, tcp_echoserver_error);
     
