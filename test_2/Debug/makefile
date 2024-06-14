@@ -84,8 +84,8 @@ all: main-build
 main-build: test_2_LED_blink_with_tim.elf secondary-outputs
 
 # Tool invocations
-test_2_LED_blink_with_tim.elf test_2_LED_blink_with_tim.map: $(OBJS) $(USER_OBJS) C:\Users\RND_220516\STM32CubeIDE\workspace_1.14.0\test_2\STM32F446ZETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-g++ -o "test_2_LED_blink_with_tim.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\RND_220516\STM32CubeIDE\workspace_1.14.0\test_2\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_2_LED_blink_with_tim.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+test_2_LED_blink_with_tim.elf test_2_LED_blink_with_tim.map: $(OBJS) $(USER_OBJS) C:\Users\RND_220516\Documents\STM32\test_2\STM32F446ZETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-g++ -o "test_2_LED_blink_with_tim.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\RND_220516\Documents\STM32\test_2\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_2_LED_blink_with_tim.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
