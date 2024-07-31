@@ -1,0 +1,16 @@
+/*
+ * velocity.h
+ *
+ *  Created on: Jul 23, 2024
+ *      Author: RND_220516
+ */
+
+#ifndef INC_VELOCITY_H_
+#define INC_VELOCITY_H_
+
+// includes
+
+// export function prototype
+void Velocity(float *target_velocity);
+
+#endif /* INC_VELOCITY_H_ */

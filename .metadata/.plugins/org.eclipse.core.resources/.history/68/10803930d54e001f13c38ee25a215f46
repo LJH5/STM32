@@ -1,0 +1,18 @@
+/*
+ * configure.h
+ *
+ *  Created on: Jul 17, 2024
+ *      Author: RND_220516
+ */
+
+#ifndef INC_CONFIG_H_
+#define INC_CONFIG_H_
+
+#include "stm32f4xx_hal.h"
+
+extern float GEAR_RATIO, WHEEL_DIAMETER, ACCELERATION_TIME;
+extern uint8_t MIN_TO_SEC, CHANGE_SEGMENTS;
+extern uint16_t AMP_PPR, MOTOR_RPM_LIMIT, MS_TO_SEC;
+extern uint32_t MCU_CLOCK;
+
+#endif /* INC_CONFIG_H_ */

@@ -74,6 +74,7 @@ static void MX_TIM6_Init(void);
   */
 int main(void)
 {
+
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
