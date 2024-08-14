@@ -37,15 +37,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  16 .debug_macro  00021ca9  00000000  00000000  0001c0d8  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   0001326c  00000000  00000000  0003dd81  2**0
+ 17 .debug_line   0001326e  00000000  00000000  0003dd81  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    000cf9e5  00000000  00000000  00050fed  2**0
+ 18 .debug_str    000cf9f8  00000000  00000000  00050fef  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000043  00000000  00000000  001209d2  2**0
+ 19 .comment      00000043  00000000  00000000  001209e7  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00004428  00000000  00000000  00120a18  2**2
+ 20 .debug_frame  00004428  00000000  00000000  00120a2c  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_line_str 00000059  00000000  00000000  00124e40  2**0
+ 21 .debug_line_str 00000059  00000000  00000000  00124e54  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -1200,6 +1200,7 @@ void HAL_MspInit(void)
  80009c8:	b480      	push	{r7}
  80009ca:	b083      	sub	sp, #12
  80009cc:	af00      	add	r7, sp, #0
+
   /* USER CODE BEGIN MspInit 0 */
 
   /* USER CODE END MspInit 0 */
@@ -1288,9 +1289,9 @@ void HAL_TIM_Base_MspInit(TIM_HandleTypeDef* htim_base)
     HAL_NVIC_EnableIRQ(TIM6_DAC_IRQn);
  8000a50:	2036      	movs	r0, #54	@ 0x36
  8000a52:	f000 fb14 	bl	800107e <HAL_NVIC_EnableIRQ>
-  /* USER CODE BEGIN TIM6_MspInit 1 */
 
   /* USER CODE END TIM6_MspInit 1 */
+
   }
 
 }
@@ -1589,9 +1590,9 @@ void HAL_PCD_MspInit(PCD_HandleTypeDef* hpcd)
  8000c3a:	f403 4380 	and.w	r3, r3, #16384	@ 0x4000
  8000c3e:	60bb      	str	r3, [r7, #8]
  8000c40:	68bb      	ldr	r3, [r7, #8]
-  /* USER CODE BEGIN USB_OTG_FS_MspInit 1 */
 
   /* USER CODE END USB_OTG_FS_MspInit 1 */
+
   }
 
 }

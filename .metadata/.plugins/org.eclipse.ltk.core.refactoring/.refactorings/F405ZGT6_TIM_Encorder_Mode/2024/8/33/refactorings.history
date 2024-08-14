@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;F405ZGT6_TIM_Encorder_Mode/F405ZGT6_PWM_test.ioc&apos; to &apos;F405ZGT6_TIM_Encorder_Mode.ioc&apos;" description="Rename resource &apos;F405ZGT6_PWM_test.ioc&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="F405ZGT6_PWM_test.ioc" name="F405ZGT6_TIM_Encorder_Mode.ioc" stamp="1723539346588" updateReferences="true"/>
+</session>

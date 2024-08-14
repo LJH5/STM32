@@ -1,3 +1,4 @@
+
 /* USER CODE BEGIN Header */
 /**
   ******************************************************************************
@@ -20,7 +21,6 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-
 /* USER CODE BEGIN Includes */
 
 /* USER CODE END Includes */
@@ -63,6 +63,7 @@
   */
 void HAL_MspInit(void)
 {
+
   /* USER CODE BEGIN MspInit 0 */
 
   /* USER CODE END MspInit 0 */
@@ -111,6 +112,7 @@ void HAL_TIM_Base_MspInit(TIM_HandleTypeDef* htim_base)
   /* USER CODE BEGIN TIM2_MspInit 1 */
 
   /* USER CODE END TIM2_MspInit 1 */
+
   }
 
 }
@@ -177,6 +179,7 @@ void HAL_UART_MspInit(UART_HandleTypeDef* huart)
   /* USER CODE BEGIN USART3_MspInit 1 */
 
   /* USER CODE END USART3_MspInit 1 */
+
   }
 
 }
@@ -260,6 +263,7 @@ void HAL_PCD_MspInit(PCD_HandleTypeDef* hpcd)
   /* USER CODE BEGIN USB_OTG_FS_MspInit 1 */
 
   /* USER CODE END USB_OTG_FS_MspInit 1 */
+
   }
 
 }
