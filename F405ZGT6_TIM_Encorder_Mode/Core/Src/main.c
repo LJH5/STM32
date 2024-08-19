@@ -43,12 +43,14 @@
 CAN_HandleTypeDef hcan1;
 
 TIM_HandleTypeDef htim3;
+TIM_HandleTypeDef htim4;
 
 USART_HandleTypeDef husart1;
 
 /* USER CODE BEGIN PV */
-uint32_t encoder_cnt = 0;
-uint8_t dir = 1;
+uint16_t pre_encorder, cur_encorder;
+uint8_t dir;
+uint32_t tick, diff, total_encorder_cnt;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -57,6 +59,7 @@ static void MX_GPIO_Init(void);
 static void MX_CAN1_Init(void);
 static void MX_USART1_Init(void);
 static void MX_TIM3_Init(void);
+static void MX_TIM4_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -98,19 +101,75 @@ int main(void)
   MX_CAN1_Init();
   MX_USART1_Init();
   MX_TIM3_Init();
+  MX_TIM4_Init();
   /* USER CODE BEGIN 2 */
+  HAL_GPIO_WritePin(GPIOG, SDO3_Pin, SET);
+  HAL_GPIO_WritePin(GPIOG, SDO7_Pin, SET);
+
   HAL_TIM_Encoder_Start(&htim3, TIM_CHANNEL_ALL);
+
+  pre_encorder = TIM3->CNT;
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-  	encoder_cnt = TIM3->CNT;
-  	dir = __HAL_TIM_IS_TIM_COUNTING_DOWN(&htim3);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+  	cur_encorder = TIM3->CNT;	// update encoder value
+
+  	// update dir
+  	if (__HAL_TIM_IS_TIM_COUNTING_DOWN(&htim3))
+  	{
+  		dir = 1;
+
+  		// check __HAL_TIM_IS_TIM_COUNTING_DOWN
+  		if ((cur_encorder > pre_encorder) && (cur_encorder - pre_encorder < 100))
+  		{
+  			dir = 0;
+  		}
+  	}
+  	else
+  	{
+  		dir = 0;
+
+  		// check __HAL_TIM_IS_TIM_COUNTING_DOWN
+			if ((pre_encorder > cur_encorder) && (pre_encorder - cur_encorder < 100))
+			{
+				dir = 1;
+			}
+  	}
+
+  	if (cur_encorder != pre_encorder)
+  	{
+			if (dir)
+			{
+				// down count
+				if(pre_encorder > cur_encorder)
+				{
+					total_encorder_cnt += (pre_encorder - cur_encorder);
+				}
+				else
+				{
+					total_encorder_cnt += ((htim3.Instance->ARR + pre_encorder) - cur_encorder);
+				}
+			}
+			else
+			{
+				// up count
+				if(cur_encorder >= pre_encorder)
+				{
+					total_encorder_cnt += (cur_encorder - pre_encorder);
+				}
+				else
+				{
+					total_encorder_cnt += ((htim3.Instance->ARR + cur_encorder) - pre_encorder);
+				}
+			}
+			pre_encorder = cur_encorder;
+  	}
   }
   /* USER CODE END 3 */
 }
@@ -217,12 +276,12 @@ static void MX_TIM3_Init(void)
 
   /* USER CODE END TIM3_Init 1 */
   htim3.Instance = TIM3;
-  htim3.Init.Prescaler = 84-1;
+  htim3.Init.Prescaler = 0;
   htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim3.Init.Period = 10-1;
+  htim3.Init.Period = 65535;
   htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
-  sConfig.EncoderMode = TIM_ENCODERMODE_TI1;
+  sConfig.EncoderMode = TIM_ENCODERMODE_TI12;
   sConfig.IC1Polarity = TIM_ICPOLARITY_RISING;
   sConfig.IC1Selection = TIM_ICSELECTION_DIRECTTI;
   sConfig.IC1Prescaler = TIM_ICPSC_DIV1;
@@ -244,6 +303,55 @@ static void MX_TIM3_Init(void)
   /* USER CODE BEGIN TIM3_Init 2 */
 
   /* USER CODE END TIM3_Init 2 */
+
+}
+
+/**
+  * @brief TIM4 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM4_Init(void)
+{
+
+  /* USER CODE BEGIN TIM4_Init 0 */
+
+  /* USER CODE END TIM4_Init 0 */
+
+  TIM_Encoder_InitTypeDef sConfig = {0};
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+  /* USER CODE BEGIN TIM4_Init 1 */
+
+  /* USER CODE END TIM4_Init 1 */
+  htim4.Instance = TIM4;
+  htim4.Init.Prescaler = 0;
+  htim4.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim4.Init.Period = 65535;
+  htim4.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim4.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  sConfig.EncoderMode = TIM_ENCODERMODE_TI1;
+  sConfig.IC1Polarity = TIM_ICPOLARITY_RISING;
+  sConfig.IC1Selection = TIM_ICSELECTION_DIRECTTI;
+  sConfig.IC1Prescaler = TIM_ICPSC_DIV1;
+  sConfig.IC1Filter = 0;
+  sConfig.IC2Polarity = TIM_ICPOLARITY_RISING;
+  sConfig.IC2Selection = TIM_ICSELECTION_DIRECTTI;
+  sConfig.IC2Prescaler = TIM_ICPSC_DIV1;
+  sConfig.IC2Filter = 0;
+  if (HAL_TIM_Encoder_Init(&htim4, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim4, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM4_Init 2 */
+
+  /* USER CODE END TIM4_Init 2 */
 
 }
 

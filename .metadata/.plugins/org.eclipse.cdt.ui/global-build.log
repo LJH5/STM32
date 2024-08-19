@@ -741,3 +741,256 @@ Finished building: default.size.stdout
  
 Finished building: F405ZGT6_TIM_Encorder_Mode.list
  
+17:21:12 **** Incremental Build of configuration Debug for project F405ZGT6_TIM_Encorder_Mode ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc -o "F405ZGT6_TIM_Encorder_Mode.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\RND_220516\Documents\STM32\F405ZGT6_TIM_Encorder_Mode\STM32F405ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F405ZGT6_TIM_Encorder_Mode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F405ZGT6_TIM_Encorder_Mode.elf
+ 
+arm-none-eabi-size  F405ZGT6_TIM_Encorder_Mode.elf 
+arm-none-eabi-objdump -h -S F405ZGT6_TIM_Encorder_Mode.elf  > "F405ZGT6_TIM_Encorder_Mode.list"
+   text	   data	    bss	    dec	    hex	filename
+  11940	     16	   1824	  13780	   35d4	F405ZGT6_TIM_Encorder_Mode.elf
+Finished building: default.size.stdout
+ 
+Finished building: F405ZGT6_TIM_Encorder_Mode.list
+ 
+17:22:58 **** Incremental Build of configuration Debug for project F405ZGT6_TIM_Encorder_Mode ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F405ZGT6_TIM_Encorder_Mode.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\RND_220516\Documents\STM32\F405ZGT6_TIM_Encorder_Mode\STM32F405ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F405ZGT6_TIM_Encorder_Mode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F405ZGT6_TIM_Encorder_Mode.elf
+ 
+arm-none-eabi-size  F405ZGT6_TIM_Encorder_Mode.elf 
+arm-none-eabi-objdump -h -S F405ZGT6_TIM_Encorder_Mode.elf  > "F405ZGT6_TIM_Encorder_Mode.list"
+   text	   data	    bss	    dec	    hex	filename
+  11940	     16	   1824	  13780	   35d4	F405ZGT6_TIM_Encorder_Mode.elf
+Finished building: default.size.stdout
+ 
+Finished building: F405ZGT6_TIM_Encorder_Mode.list
+ 
+10:54:06 **** Incremental Build of configuration Debug for project F405ZGT6_TIM_Encorder_Mode ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F405ZGT6_TIM_Encorder_Mode.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\RND_220516\Documents\STM32\F405ZGT6_TIM_Encorder_Mode\STM32F405ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F405ZGT6_TIM_Encorder_Mode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F405ZGT6_TIM_Encorder_Mode.elf
+ 
+arm-none-eabi-size  F405ZGT6_TIM_Encorder_Mode.elf 
+arm-none-eabi-objdump -h -S F405ZGT6_TIM_Encorder_Mode.elf  > "F405ZGT6_TIM_Encorder_Mode.list"
+   text	   data	    bss	    dec	    hex	filename
+  12160	     16	   1832	  14008	   36b8	F405ZGT6_TIM_Encorder_Mode.elf
+Finished building: default.size.stdout
+ 
+Finished building: F405ZGT6_TIM_Encorder_Mode.list
+ 
+11:00:21 **** Incremental Build of configuration Debug for project F405ZGT6_TIM_Encorder_Mode ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F405ZGT6_TIM_Encorder_Mode.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\RND_220516\Documents\STM32\F405ZGT6_TIM_Encorder_Mode\STM32F405ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F405ZGT6_TIM_Encorder_Mode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F405ZGT6_TIM_Encorder_Mode.elf
+ 
+arm-none-eabi-size  F405ZGT6_TIM_Encorder_Mode.elf 
+arm-none-eabi-objdump -h -S F405ZGT6_TIM_Encorder_Mode.elf  > "F405ZGT6_TIM_Encorder_Mode.list"
+   text	   data	    bss	    dec	    hex	filename
+  12188	     16	   1832	  14036	   36d4	F405ZGT6_TIM_Encorder_Mode.elf
+Finished building: default.size.stdout
+ 
+Finished building: F405ZGT6_TIM_Encorder_Mode.list
+ 
+11:01:01 **** Incremental Build of configuration Debug for project F405ZGT6_TIM_Encorder_Mode ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F405ZGT6_TIM_Encorder_Mode.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\RND_220516\Documents\STM32\F405ZGT6_TIM_Encorder_Mode\STM32F405ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F405ZGT6_TIM_Encorder_Mode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F405ZGT6_TIM_Encorder_Mode.elf
+ 
+arm-none-eabi-size  F405ZGT6_TIM_Encorder_Mode.elf 
+arm-none-eabi-objdump -h -S F405ZGT6_TIM_Encorder_Mode.elf  > "F405ZGT6_TIM_Encorder_Mode.list"
+   text	   data	    bss	    dec	    hex	filename
+  12184	     16	   1832	  14032	   36d0	F405ZGT6_TIM_Encorder_Mode.elf
+Finished building: default.size.stdout
+ 
+Finished building: F405ZGT6_TIM_Encorder_Mode.list
+ 
+11:10:07 **** Incremental Build of configuration Debug for project F405ZGT6_TIM_Encorder_Mode ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F405ZGT6_TIM_Encorder_Mode.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\RND_220516\Documents\STM32\F405ZGT6_TIM_Encorder_Mode\STM32F405ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F405ZGT6_TIM_Encorder_Mode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F405ZGT6_TIM_Encorder_Mode.elf
+ 
+arm-none-eabi-size  F405ZGT6_TIM_Encorder_Mode.elf 
+arm-none-eabi-objdump -h -S F405ZGT6_TIM_Encorder_Mode.elf  > "F405ZGT6_TIM_Encorder_Mode.list"
+   text	   data	    bss	    dec	    hex	filename
+  12224	     16	   1832	  14072	   36f8	F405ZGT6_TIM_Encorder_Mode.elf
+Finished building: default.size.stdout
+ 
+Finished building: F405ZGT6_TIM_Encorder_Mode.list
+ 
+11:11:56 **** Incremental Build of configuration Debug for project F405ZGT6_TIM_Encorder_Mode ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F405ZGT6_TIM_Encorder_Mode.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\RND_220516\Documents\STM32\F405ZGT6_TIM_Encorder_Mode\STM32F405ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F405ZGT6_TIM_Encorder_Mode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F405ZGT6_TIM_Encorder_Mode.elf
+ 
+arm-none-eabi-size  F405ZGT6_TIM_Encorder_Mode.elf 
+arm-none-eabi-objdump -h -S F405ZGT6_TIM_Encorder_Mode.elf  > "F405ZGT6_TIM_Encorder_Mode.list"
+   text	   data	    bss	    dec	    hex	filename
+  12248	     16	   1832	  14096	   3710	F405ZGT6_TIM_Encorder_Mode.elf
+Finished building: default.size.stdout
+ 
+Finished building: F405ZGT6_TIM_Encorder_Mode.list
+ 
+11:13:08 **** Incremental Build of configuration Debug for project F405ZGT6_TIM_Encorder_Mode ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F405ZGT6_TIM_Encorder_Mode.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\RND_220516\Documents\STM32\F405ZGT6_TIM_Encorder_Mode\STM32F405ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F405ZGT6_TIM_Encorder_Mode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F405ZGT6_TIM_Encorder_Mode.elf
+ 
+arm-none-eabi-size  F405ZGT6_TIM_Encorder_Mode.elf 
+arm-none-eabi-objdump -h -S F405ZGT6_TIM_Encorder_Mode.elf  > "F405ZGT6_TIM_Encorder_Mode.list"
+   text	   data	    bss	    dec	    hex	filename
+  12240	     16	   1832	  14088	   3708	F405ZGT6_TIM_Encorder_Mode.elf
+Finished building: default.size.stdout
+ 
+Finished building: F405ZGT6_TIM_Encorder_Mode.list
+ 
+11:31:48 **** Incremental Build of configuration Debug for project F405ZGT6_TIM_Encorder_Mode ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F405ZGT6_TIM_Encorder_Mode.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\RND_220516\Documents\STM32\F405ZGT6_TIM_Encorder_Mode\STM32F405ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F405ZGT6_TIM_Encorder_Mode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F405ZGT6_TIM_Encorder_Mode.elf
+ 
+arm-none-eabi-size  F405ZGT6_TIM_Encorder_Mode.elf 
+arm-none-eabi-objdump -h -S F405ZGT6_TIM_Encorder_Mode.elf  > "F405ZGT6_TIM_Encorder_Mode.list"
+   text	   data	    bss	    dec	    hex	filename
+  12352	     12	   1836	  14200	   3778	F405ZGT6_TIM_Encorder_Mode.elf
+Finished building: default.size.stdout
+ 
+Finished building: F405ZGT6_TIM_Encorder_Mode.list
+ 
+15:18:55 **** Incremental Build of configuration Debug for project F405ZGT6_TIM_Encorder_Mode ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F405ZGT6_TIM_Encorder_Mode.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\RND_220516\Documents\STM32\F405ZGT6_TIM_Encorder_Mode\STM32F405ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F405ZGT6_TIM_Encorder_Mode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F405ZGT6_TIM_Encorder_Mode.elf
+ 
+arm-none-eabi-size  F405ZGT6_TIM_Encorder_Mode.elf 
+arm-none-eabi-objdump -h -S F405ZGT6_TIM_Encorder_Mode.elf  > "F405ZGT6_TIM_Encorder_Mode.list"
+   text	   data	    bss	    dec	    hex	filename
+  12124	     12	   1836	  13972	   3694	F405ZGT6_TIM_Encorder_Mode.elf
+Finished building: default.size.stdout
+ 
+Finished building: F405ZGT6_TIM_Encorder_Mode.list
+ 
+15:23:57 **** Incremental Build of configuration Debug for project F405ZGT6_TIM_Encorder_Mode ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F405ZGT6_TIM_Encorder_Mode.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\RND_220516\Documents\STM32\F405ZGT6_TIM_Encorder_Mode\STM32F405ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F405ZGT6_TIM_Encorder_Mode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F405ZGT6_TIM_Encorder_Mode.elf
+ 
+arm-none-eabi-size  F405ZGT6_TIM_Encorder_Mode.elf 
+arm-none-eabi-objdump -h -S F405ZGT6_TIM_Encorder_Mode.elf  > "F405ZGT6_TIM_Encorder_Mode.list"
+   text	   data	    bss	    dec	    hex	filename
+  12144	     12	   1836	  13992	   36a8	F405ZGT6_TIM_Encorder_Mode.elf
+Finished building: default.size.stdout
+ 
+Finished building: F405ZGT6_TIM_Encorder_Mode.list
+ 
+16:02:28 **** Incremental Build of configuration Debug for project F405ZGT6_TIM_Encorder_Mode ****
+make -j4 all 
+arm-none-eabi-size  F405ZGT6_TIM_Encorder_Mode.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12144	     12	   1836	  13992	   36a8	F405ZGT6_TIM_Encorder_Mode.elf
+Finished building: default.size.stdout
+ 
+16:05:32 **** Incremental Build of configuration Debug for project F405ZGT6_TIM_Encorder_Mode ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F405ZGT6_TIM_Encorder_Mode.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\RND_220516\Documents\STM32\F405ZGT6_TIM_Encorder_Mode\STM32F405ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F405ZGT6_TIM_Encorder_Mode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F405ZGT6_TIM_Encorder_Mode.elf
+ 
+arm-none-eabi-size  F405ZGT6_TIM_Encorder_Mode.elf 
+arm-none-eabi-objdump -h -S F405ZGT6_TIM_Encorder_Mode.elf  > "F405ZGT6_TIM_Encorder_Mode.list"
+   text	   data	    bss	    dec	    hex	filename
+  12144	     12	   1836	  13992	   36a8	F405ZGT6_TIM_Encorder_Mode.elf
+Finished building: default.size.stdout
+ 
+Finished building: F405ZGT6_TIM_Encorder_Mode.list
+ 
+16:09:28 **** Incremental Build of configuration Debug for project F405ZGT6_TIM_Encorder_Mode ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F405ZGT6_TIM_Encorder_Mode.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\RND_220516\Documents\STM32\F405ZGT6_TIM_Encorder_Mode\STM32F405ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F405ZGT6_TIM_Encorder_Mode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F405ZGT6_TIM_Encorder_Mode.elf
+ 
+arm-none-eabi-size  F405ZGT6_TIM_Encorder_Mode.elf 
+arm-none-eabi-objdump -h -S F405ZGT6_TIM_Encorder_Mode.elf  > "F405ZGT6_TIM_Encorder_Mode.list"
+   text	   data	    bss	    dec	    hex	filename
+  12144	     12	   1836	  13992	   36a8	F405ZGT6_TIM_Encorder_Mode.elf
+Finished building: default.size.stdout
+ 
+Finished building: F405ZGT6_TIM_Encorder_Mode.list
+ 
+16:11:12 **** Incremental Build of configuration Debug for project F405ZGT6_TIM_Encorder_Mode ****
+make -j4 all 
+arm-none-eabi-size  F405ZGT6_TIM_Encorder_Mode.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12144	     12	   1836	  13992	   36a8	F405ZGT6_TIM_Encorder_Mode.elf
+Finished building: default.size.stdout
+ 
+16:23:39 **** Incremental Build of configuration Debug for project F405ZGT6_TIM_Encorder_Mode ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F405ZGT6_TIM_Encorder_Mode.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\RND_220516\Documents\STM32\F405ZGT6_TIM_Encorder_Mode\STM32F405ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F405ZGT6_TIM_Encorder_Mode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F405ZGT6_TIM_Encorder_Mode.elf
+ 
+arm-none-eabi-size  F405ZGT6_TIM_Encorder_Mode.elf 
+arm-none-eabi-objdump -h -S F405ZGT6_TIM_Encorder_Mode.elf  > "F405ZGT6_TIM_Encorder_Mode.list"
+   text	   data	    bss	    dec	    hex	filename
+  12212	     12	   1836	  14060	   36ec	F405ZGT6_TIM_Encorder_Mode.elf
+Finished building: default.size.stdout
+ 
+Finished building: F405ZGT6_TIM_Encorder_Mode.list
+ 
+16:31:35 **** Incremental Build of configuration Debug for project F405ZGT6_TIM_Encorder_Mode ****
+make -j4 all 
+arm-none-eabi-size  F405ZGT6_TIM_Encorder_Mode.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12212	     12	   1836	  14060	   36ec	F405ZGT6_TIM_Encorder_Mode.elf
+Finished building: default.size.stdout
+ 
+16:32:53 **** Incremental Build of configuration Debug for project F405ZGT6_TIM_Encorder_Mode ****
+make -j4 all 
+arm-none-eabi-size  F405ZGT6_TIM_Encorder_Mode.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12212	     12	   1836	  14060	   36ec	F405ZGT6_TIM_Encorder_Mode.elf
+Finished building: default.size.stdout
+ 
+16:43:01 **** Incremental Build of configuration Debug for project F405ZGT6_TIM_Encorder_Mode ****
+make -j4 all 
+arm-none-eabi-size  F405ZGT6_TIM_Encorder_Mode.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12212	     12	   1836	  14060	   36ec	F405ZGT6_TIM_Encorder_Mode.elf
+Finished building: default.size.stdout
+ 
+16:44:43 **** Incremental Build of configuration Debug for project F405ZGT6_TIM_Encorder_Mode ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F405ZGT6_TIM_Encorder_Mode.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\RND_220516\Documents\STM32\F405ZGT6_TIM_Encorder_Mode\STM32F405ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F405ZGT6_TIM_Encorder_Mode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F405ZGT6_TIM_Encorder_Mode.elf
+ 
+arm-none-eabi-size  F405ZGT6_TIM_Encorder_Mode.elf 
+arm-none-eabi-objdump -h -S F405ZGT6_TIM_Encorder_Mode.elf  > "F405ZGT6_TIM_Encorder_Mode.list"
+   text	   data	    bss	    dec	    hex	filename
+  12212	     12	   1836	  14060	   36ec	F405ZGT6_TIM_Encorder_Mode.elf
+Finished building: default.size.stdout
+ 
+Finished building: F405ZGT6_TIM_Encorder_Mode.list
+ 
+16:45:19 **** Incremental Build of configuration Debug for project F405ZGT6_TIM_Encorder_Mode ****
+make -j4 all 
+arm-none-eabi-size  F405ZGT6_TIM_Encorder_Mode.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12212	     12	   1836	  14060	   36ec	F405ZGT6_TIM_Encorder_Mode.elf
+Finished building: default.size.stdout
+ 
