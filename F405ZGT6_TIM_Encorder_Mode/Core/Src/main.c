@@ -48,9 +48,9 @@ TIM_HandleTypeDef htim4;
 USART_HandleTypeDef husart1;
 
 /* USER CODE BEGIN PV */
-uint16_t pre_encorder, cur_encorder;
+uint16_t pre_encorder, cur_encorder, forward_rotate_cnt, backward_rotate_cnt;
 uint8_t dir;
-uint32_t tick, diff, total_encorder_cnt;
+uint32_t tick, diff, forward_encorder_cnt, backward_encorder_cnt;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -126,7 +126,7 @@ int main(void)
   		dir = 1;
 
   		// check __HAL_TIM_IS_TIM_COUNTING_DOWN
-  		if ((cur_encorder > pre_encorder) && (cur_encorder - pre_encorder < 100))
+  		if ((cur_encorder > pre_encorder) && (cur_encorder - pre_encorder < 10))
   		{
   			dir = 0;
   		}
@@ -136,7 +136,7 @@ int main(void)
   		dir = 0;
 
   		// check __HAL_TIM_IS_TIM_COUNTING_DOWN
-			if ((pre_encorder > cur_encorder) && (pre_encorder - cur_encorder < 100))
+			if ((pre_encorder > cur_encorder) && (pre_encorder - cur_encorder < 10))
 			{
 				dir = 1;
 			}
@@ -149,11 +149,11 @@ int main(void)
 				// down count
 				if(pre_encorder > cur_encorder)
 				{
-					total_encorder_cnt += (pre_encorder - cur_encorder);
+					forward_encorder_cnt += (pre_encorder - cur_encorder);
 				}
 				else
 				{
-					total_encorder_cnt += ((htim3.Instance->ARR + pre_encorder) - cur_encorder);
+					forward_encorder_cnt += ((htim3.Instance->ARR + pre_encorder) - cur_encorder);
 				}
 			}
 			else
@@ -161,11 +161,11 @@ int main(void)
 				// up count
 				if(cur_encorder >= pre_encorder)
 				{
-					total_encorder_cnt += (cur_encorder - pre_encorder);
+					backward_encorder_cnt += (cur_encorder - pre_encorder);
 				}
 				else
 				{
-					total_encorder_cnt += ((htim3.Instance->ARR + cur_encorder) - pre_encorder);
+					backward_encorder_cnt += ((htim3.Instance->ARR + cur_encorder) - pre_encorder);
 				}
 			}
 			pre_encorder = cur_encorder;

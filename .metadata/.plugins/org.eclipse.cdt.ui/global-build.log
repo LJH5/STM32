@@ -994,3 +994,10 @@ arm-none-eabi-size  F405ZGT6_TIM_Encorder_Mode.elf
   12212	     12	   1836	  14060	   36ec	F405ZGT6_TIM_Encorder_Mode.elf
 Finished building: default.size.stdout
  
+17:16:31 **** Incremental Build of configuration Debug for project F405ZGT6_TIM_Encorder_Mode ****
+make -j4 all 
+arm-none-eabi-size  F405ZGT6_TIM_Encorder_Mode.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12212	     12	   1836	  14060	   36ec	F405ZGT6_TIM_Encorder_Mode.elf
+Finished building: default.size.stdout
+ 
