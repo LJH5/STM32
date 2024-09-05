@@ -1,6 +1,6 @@
 ################################################################################
 # Automatically-generated file. Do not edit!
-# Toolchain: GNU Tools for STM32 (11.3.rel1)
+# Toolchain: GNU Tools for STM32 (12.3.rel1)
 ################################################################################
 
 -include ../makefile.init
@@ -60,8 +60,8 @@ all: main-build
 main-build: F103R8T6_flash_memory.elf secondary-outputs
 
 # Tool invocations
-F103R8T6_flash_memory.elf F103R8T6_flash_memory.map: $(OBJS) $(USER_OBJS) C:\Users\RND_220516\STM32CubeIDE\workspace_1.14.0\F103R8T6_flash_memory\STM32F103R8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "F103R8T6_flash_memory.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\RND_220516\STM32CubeIDE\workspace_1.14.0\F103R8T6_flash_memory\STM32F103R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F103R8T6_flash_memory.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+F103R8T6_flash_memory.elf F103R8T6_flash_memory.map: $(OBJS) $(USER_OBJS) C:\Users\RND_220516\Documents\STM32\F103R8T6_flash_memory\STM32F103R8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "F103R8T6_flash_memory.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\RND_220516\Documents\STM32\F103R8T6_flash_memory\STM32F103R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F103R8T6_flash_memory.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

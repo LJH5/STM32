@@ -123,7 +123,7 @@ int main(void)
 
   		// the way to stop PWM
 
-  		// 1. Set the CCR to 0
+  		// 1. Set the CCRx to 0
   		if (arr == 0)
   		{
   			htim5.Instance->CCR1 = 0;

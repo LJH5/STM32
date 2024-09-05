@@ -883,7 +883,7 @@ int main(void)
 
   		// the way to stop PWM
 
-  		// 1. Set the CCR to 0
+  		// 1. Set the CCRx to 0
   		if (arr == 0)
  8000a7a:	4b32      	ldr	r3, [pc, #200]	@ (8000b44 <main+0x114>)
  8000a7c:	e9d3 0100 	ldrd	r0, r1, [r3]

@@ -1,6 +1,6 @@
 ################################################################################
 # Automatically-generated file. Do not edit!
-# Toolchain: GNU Tools for STM32 (11.3.rel1)
+# Toolchain: GNU Tools for STM32 (12.3.rel1)
 ################################################################################
 
 -include ../makefile.init
@@ -60,8 +60,8 @@ all: main-build
 main-build: test8_IR_receiver.elf secondary-outputs
 
 # Tool invocations
-test8_IR_receiver.elf test8_IR_receiver.map: $(OBJS) $(USER_OBJS) C:\Users\RND_220516\STM32CubeIDE\workspace_1.14.0\test8_IR_receiver\STM32F446ZETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "test8_IR_receiver.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\RND_220516\STM32CubeIDE\workspace_1.14.0\test8_IR_receiver\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test8_IR_receiver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+test8_IR_receiver.elf test8_IR_receiver.map: $(OBJS) $(USER_OBJS) C:\Users\RND_220516\Documents\STM32\test8_IR_receiver\STM32F446ZETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "test8_IR_receiver.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\RND_220516\Documents\STM32\test8_IR_receiver\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test8_IR_receiver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

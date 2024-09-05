@@ -26,6 +26,11 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
+typedef struct
+{
+	uint16_t encoder_cnt;
+	uint8_t	rotate_dir;	// 0:CCW, 1: CW
+} Encoder_StatusTypeDef;
 
 /* USER CODE END PTD */
 
@@ -44,13 +49,15 @@ CAN_HandleTypeDef hcan1;
 
 TIM_HandleTypeDef htim3;
 TIM_HandleTypeDef htim4;
+TIM_HandleTypeDef htim5;
 
 USART_HandleTypeDef husart1;
 
 /* USER CODE BEGIN PV */
-uint16_t pre_encorder, cur_encorder, forward_rotate_cnt, backward_rotate_cnt;
-uint8_t dir;
-uint32_t tick, diff, forward_encorder_cnt, backward_encorder_cnt;
+uint32_t forward_encoder_cnt, backward_encoder_cnt;
+uint32_t pre_encoder, cur_encoder;
+Encoder_StatusTypeDef encoder_status;
+uint8_t motor_on;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -60,8 +67,9 @@ static void MX_CAN1_Init(void);
 static void MX_USART1_Init(void);
 static void MX_TIM3_Init(void);
 static void MX_TIM4_Init(void);
+static void MX_TIM5_Init(void);
 /* USER CODE BEGIN PFP */
-
+Encoder_StatusTypeDef Encorder_Cnt(TIM_HandleTypeDef *htim);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -102,13 +110,32 @@ int main(void)
   MX_USART1_Init();
   MX_TIM3_Init();
   MX_TIM4_Init();
+  MX_TIM5_Init();
   /* USER CODE BEGIN 2 */
-  HAL_GPIO_WritePin(GPIOG, SDO3_Pin, SET);
-  HAL_GPIO_WritePin(GPIOG, SDO7_Pin, SET);
+  if (HAL_TIM_Encoder_Start(&htim3, TIM_CHANNEL_ALL) != HAL_OK)
+  {
+  	Error_Handler();
+  }
 
-  HAL_TIM_Encoder_Start(&htim3, TIM_CHANNEL_ALL);
+	// servo on
+	HAL_GPIO_WritePin(GPIOD, SDO0_Pin, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(GPIOG, SDO4_Pin, GPIO_PIN_SET);
 
-  pre_encorder = TIM3->CNT;
+	// EM2 release
+	HAL_GPIO_WritePin(GPIOG, SDO3_Pin, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(GPIOG, SDO7_Pin, GPIO_PIN_SET);
+
+	// LSP on
+	HAL_GPIO_WritePin(GPIOG, SDO2_Pin, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(GPIOG, SDO6_Pin, GPIO_PIN_SET);
+
+	// PWM on
+	if (HAL_TIM_PWM_Start(&htim5, TIM_CHANNEL_1) != HAL_OK)
+	{
+		Error_Handler();
+	}
+
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -118,58 +145,27 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-  	cur_encorder = TIM3->CNT;	// update encoder value
-
-  	// update dir
-  	if (__HAL_TIM_IS_TIM_COUNTING_DOWN(&htim3))
+  	if (motor_on)
   	{
-  		dir = 1;
+  		htim5.Instance->ARR = 100-1;
+  		htim5.Instance->CCR1 = 50;
 
-  		// check __HAL_TIM_IS_TIM_COUNTING_DOWN
-  		if ((cur_encorder > pre_encorder) && (cur_encorder - pre_encorder < 10))
-  		{
-  			dir = 0;
-  		}
-  	}
-  	else
-  	{
-  		dir = 0;
+  		encoder_status = Encorder_Cnt(&htim3);
 
-  		// check __HAL_TIM_IS_TIM_COUNTING_DOWN
-			if ((pre_encorder > cur_encorder) && (pre_encorder - cur_encorder < 10))
+			if (encoder_status.rotate_dir)
 			{
-				dir = 1;
-			}
-  	}
-
-  	if (cur_encorder != pre_encorder)
-  	{
-			if (dir)
-			{
-				// down count
-				if(pre_encorder > cur_encorder)
-				{
-					forward_encorder_cnt += (pre_encorder - cur_encorder);
-				}
-				else
-				{
-					forward_encorder_cnt += ((htim3.Instance->ARR + pre_encorder) - cur_encorder);
-				}
+				forward_encoder_cnt += encoder_status.encoder_cnt;
 			}
 			else
 			{
-				// up count
-				if(cur_encorder >= pre_encorder)
-				{
-					backward_encorder_cnt += (cur_encorder - pre_encorder);
-				}
-				else
-				{
-					backward_encorder_cnt += ((htim3.Instance->ARR + cur_encorder) - pre_encorder);
-				}
+				backward_encoder_cnt += encoder_status.encoder_cnt;
 			}
-			pre_encorder = cur_encorder;
   	}
+  	else
+  	{
+  		htim5.Instance->CCR1 = 0;
+  	}
+//  	HAL_Delay(10);
   }
   /* USER CODE END 3 */
 }
@@ -356,6 +352,69 @@ static void MX_TIM4_Init(void)
 }
 
 /**
+  * @brief TIM5 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM5_Init(void)
+{
+
+  /* USER CODE BEGIN TIM5_Init 0 */
+
+  /* USER CODE END TIM5_Init 0 */
+
+  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+  TIM_OC_InitTypeDef sConfigOC = {0};
+
+  /* USER CODE BEGIN TIM5_Init 1 */
+
+  /* USER CODE END TIM5_Init 1 */
+  htim5.Instance = TIM5;
+  htim5.Init.Prescaler = 84 - 1 ;
+  htim5.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim5.Init.Period = 1000-1;
+  htim5.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim5.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
+  if (HAL_TIM_Base_Init(&htim5) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim5, &sClockSourceConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_TIM_PWM_Init(&htim5) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim5, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sConfigOC.OCMode = TIM_OCMODE_PWM1;
+  sConfigOC.Pulse = 0;
+  sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+  sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+  if (HAL_TIM_PWM_ConfigChannel(&htim5, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_TIM_PWM_ConfigChannel(&htim5, &sConfigOC, TIM_CHANNEL_3) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM5_Init 2 */
+
+  /* USER CODE END TIM5_Init 2 */
+  HAL_TIM_MspPostInit(&htim5);
+
+}
+
+/**
   * @brief USART1 Initialization Function
   * @param None
   * @retval None
@@ -457,7 +516,65 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+Encoder_StatusTypeDef Encorder_Cnt(TIM_HandleTypeDef *htim)
+{
+	Encoder_StatusTypeDef encoder_status = {0, 0};
 
+	cur_encoder = htim->Instance->CNT;	// update encoder value
+
+	// update dir
+	if (__HAL_TIM_IS_TIM_COUNTING_DOWN(&htim3))
+	{
+		encoder_status.rotate_dir = 1;
+
+		// check __HAL_TIM_IS_TIM_COUNTING_DOWN
+		if ((cur_encoder > pre_encoder) && (cur_encoder - pre_encoder < 10))
+		{
+			encoder_status.rotate_dir = 0;
+		}
+	}
+	else
+	{
+		encoder_status.rotate_dir = 0;
+
+		// check __HAL_TIM_IS_TIM_COUNTING_DOWN
+		if ((pre_encoder > cur_encoder) && (pre_encoder - cur_encoder < 10))
+		{
+			encoder_status.rotate_dir = 1;
+		}
+	}
+
+	if (cur_encoder != pre_encoder)
+	{
+		if (encoder_status.rotate_dir)
+		{
+			// down count
+			if(pre_encoder > cur_encoder)
+			{
+				encoder_status.encoder_cnt = (pre_encoder - cur_encoder);
+			}
+			else
+			{
+				encoder_status.encoder_cnt = ((htim3.Instance->ARR + pre_encoder) - cur_encoder);
+			}
+		}
+		else
+		{
+			// up count
+			if(cur_encoder >= pre_encoder)
+			{
+				encoder_status.encoder_cnt = (cur_encoder - pre_encoder);
+			}
+			else
+			{
+				encoder_status.encoder_cnt = ((htim3.Instance->ARR + cur_encoder) - pre_encoder);
+			}
+		}
+
+		pre_encoder = cur_encoder;
+	}
+	return encoder_status;
+}
 /* USER CODE END 4 */
 
 /**
