@@ -60,8 +60,8 @@ all: main-build
 main-build: F446ZE_TIM_OC.elf secondary-outputs
 
 # Tool invocations
-F446ZE_TIM_OC.elf F446ZE_TIM_OC.map: $(OBJS) $(USER_OBJS) C:\Users\RND_220516\Documents\STM32\F446ZE_TIM_OC\STM32F446ZETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "F446ZE_TIM_OC.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\RND_220516\Documents\STM32\F446ZE_TIM_OC\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446ZE_TIM_OC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+F446ZE_TIM_OC.elf F446ZE_TIM_OC.map: $(OBJS) $(USER_OBJS) C:\Users\sigma\Documents\STM32\F446ZE_TIM_OC\STM32F446ZETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "F446ZE_TIM_OC.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\sigma\Documents\STM32\F446ZE_TIM_OC\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446ZE_TIM_OC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

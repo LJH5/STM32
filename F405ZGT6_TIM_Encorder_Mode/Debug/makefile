@@ -60,8 +60,8 @@ all: main-build
 main-build: F405ZGT6_TIM_Encorder_Mode.elf secondary-outputs
 
 # Tool invocations
-F405ZGT6_TIM_Encorder_Mode.elf F405ZGT6_TIM_Encorder_Mode.map: $(OBJS) $(USER_OBJS) C:\Users\RND_220516\Documents\STM32\F405ZGT6_TIM_Encorder_Mode\STM32F405ZGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "F405ZGT6_TIM_Encorder_Mode.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\RND_220516\Documents\STM32\F405ZGT6_TIM_Encorder_Mode\STM32F405ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F405ZGT6_TIM_Encorder_Mode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+F405ZGT6_TIM_Encorder_Mode.elf F405ZGT6_TIM_Encorder_Mode.map: $(OBJS) $(USER_OBJS) C:\Users\sigma\Documents\STM32\F405ZGT6_TIM_Encorder_Mode\STM32F405ZGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "F405ZGT6_TIM_Encorder_Mode.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\sigma\Documents\STM32\F405ZGT6_TIM_Encorder_Mode\STM32F405ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F405ZGT6_TIM_Encorder_Mode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
