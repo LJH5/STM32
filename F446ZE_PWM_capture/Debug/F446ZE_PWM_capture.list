@@ -1243,7 +1243,10 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
  8000a54:	200005f0 	.word	0x200005f0
 
 08000a58 <HAL_TIM_PWM_PulseFinishedCallback>:
-
+  * @brief  this function called when a PWM pulse is completed
+  * @param  TIM handle
+  * @retval None
+  */
 void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef *htim)
 {
  8000a58:	b480      	push	{r7}
